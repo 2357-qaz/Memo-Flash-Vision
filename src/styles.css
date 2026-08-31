@@ -110,57 +110,54 @@ nav button.active{color:var(--accent)}
 .review-header{display:flex;justify-content:space-between;align-items:center}
 .review-meta{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--soft)}.review-meta strong{color:var(--ink)}
 .review-stage{min-height:0;display:grid;place-items:center;overflow:visible;padding:12px 0}
-.card-holder{
-  width:calc(100% - 16px);
+.holder {
+  width: 100%;
+  perspective: 1600px;
+  transform: rotate(-1.2deg);
+}
+.card {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 330px;
+  background: var(--card);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(42,39,34,.08), 0 14px 34px -8px rgba(42,39,34,.16);
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+  cursor: pointer;
+}
+.card.flipped {
+  transform: rotateX(180deg);
+  animation: lift .5s cubic-bezier(.2, .7, .2, 1);
+}
+@keyframes lift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+.face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 36px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.face.back { transform: rotateX(180deg); position: relative; }
+
+/* Memo sizing only; the flip mechanics above are copied from fangge-cards. */
+.review-stage .holder{
+  width:calc(100% - 18px);
   max-width:700px;
-  perspective:1600px;
-  transform:rotate(-.45deg)
 }
-.study-card{
-  position:relative;
-  display:grid;
-  width:100%;
+.review-stage .card{
   height:min(62dvh,520px);
-  min-height:320px;
-  background:var(--card);
   border:1.5px solid var(--ink);
-  border-radius:6px;
-  box-shadow:0 18px 34px rgba(9,43,76,.085);
-  transform-style:preserve-3d;
-  -webkit-transform-style:preserve-3d;
-  transition:transform .5s cubic-bezier(.2,.7,.2,1);
-  cursor:pointer;
-  user-select:none;
-  -webkit-user-select:none;
-  touch-action:none
 }
-.study-card.flipped{
-  transform:rotateX(180deg);
-  -webkit-transform:rotateX(180deg);
-  animation:lift .5s cubic-bezier(.2,.7,.2,1)
-}
-.study-card.locked{cursor:default}
-@keyframes lift{
-  0%,100%{translate:0 0}
-  50%{translate:0 -8px}
-}
-.card-face{
-  grid-area:1 / 1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:34px clamp(22px,6vw,44px);
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-  overflow:hidden
-}
-.card-face.back{
-  transform:rotateX(180deg);
-  -webkit-transform:rotateX(180deg);
-  position:relative
-}
+.card.locked{cursor:default}
 .card-kicker{position:absolute;left:22px;top:20px;color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.1em;max-width:75%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card-main{width:100%;max-height:78%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .card-main h1{font-family:ui-serif,Georgia,serif;font-size:clamp(38px,9vw,76px);margin:0;max-width:94%;overflow-wrap:anywhere;text-wrap:balance}
@@ -175,6 +172,7 @@ nav button.active{color:var(--accent)}
 .stamp-slot .trace{fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:trace .32s ease-out forwards}
 .stamp-slot .trace.t2{animation-delay:.1s}@keyframes trace{to{stroke-dashoffset:0}}
 
+.card { touch-action: pan-x pinch-zoom; }
 .rating-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .rating-row button{min-height:58px;border:1px solid var(--line);background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
 .rating-row b{color:var(--accent);font-size:19px}.rating-row kbd{opacity:.5;font-size:10px}
@@ -192,10 +190,11 @@ nav button.active{color:var(--accent)}
   .section-title{align-items:flex-end}.section-title button{font-size:11px}
   .project-tile{grid-template-columns:72px 1fr auto;padding:14px;gap:12px}.project-swatch{width:68px;height:62px}.project-tile h3{font-size:21px}.project-tile p{font-size:12px}.project-due strong{font-size:34px}
   .deck-row{align-items:flex-start;gap:10px}.deck-row h3{font-size:20px}.deck-row p{font-size:12px}
-  .review-shell{padding-left:12px;padding-right:12px;gap:9px}.review-stage{padding:8px 0}.card-holder{width:calc(100% - 16px);transform:rotate(-.35deg)}.study-card{height:min(62dvh,510px)}
-  .card-face{padding:28px 18px}.card-kicker{left:16px;top:15px}.card-foot{left:14px;right:14px;bottom:13px}
+  .review-shell{padding-left:12px;padding-right:12px;gap:9px}.review-stage{padding:8px 0}.review-stage .holder{width:calc(100% - 16px);transform:rotate(-.35deg)}.review-stage .card{height:min(62dvh,510px)}
+  .face{padding:28px 18px}.card-kicker{left:16px;top:15px}.card-foot{left:14px;right:14px;bottom:13px}
   .rating-row button{min-height:52px}.rating-row kbd{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  .study-card{transition:none}.study-card.flipped{animation:none}.stamp-slot svg,.stamp-slot .trace{animation-duration:.01ms}
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .stamp-slot .trace{stroke-dashoffset:0}
 }
