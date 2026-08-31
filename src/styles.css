@@ -5,15 +5,62 @@
   --ink:#092b4c;--accent:#c64b32;--paper:#f4efe5;
   --line:rgba(9,43,76,.26);--soft:rgba(9,43,76,.64);--card:#f8f2e9
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{background:var(--paper)}
 body{
   margin:0;min-width:320px;min-height:100dvh;
   background:radial-gradient(circle at 12% 10%,rgba(9,43,76,.035) 0 1px,transparent 1.5px) 0 0/13px 13px,var(--paper);
   color:var(--ink)
 }
-button{font:inherit;color:inherit}
+button{
+  font:inherit;color:inherit;
+  -webkit-appearance:none;appearance:none;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+}
+button:active{filter:none}
 button:disabled{opacity:.38}
+/* View transitions: use Fangge's short, springy easing without heavy page choreography. */
+.view-panel{
+  transform-origin:50% 18%;
+  will-change:opacity,transform
+}
+.home-enter,.page-enter{
+  animation:view-in .34s cubic-bezier(.2,.7,.3,1.15) both
+}
+.review-enter{
+  animation:review-in .38s cubic-bezier(.2,.7,.3,1.12) both
+}
+@keyframes view-in{
+  from{opacity:0;transform:translateY(10px) scale(.992)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes review-in{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.home-enter .hero-card-stack{
+  animation:content-pop .44s .04s cubic-bezier(.2,.7,.3,1.18) both
+}
+.page-enter .page-title{
+  animation:title-in .4s .02s cubic-bezier(.2,.7,.3,1.12) both
+}
+.review-enter .holder{
+  animation:session-card-in .42s .03s cubic-bezier(.2,.7,.3,1.16) both
+}
+@keyframes content-pop{
+  from{opacity:0;transform:translateY(8px) scale(.975)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes title-in{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes session-card-in{
+  from{opacity:0;transform:rotate(-1.2deg) translateY(10px) scale(.985)}
+  to{opacity:1;transform:rotate(-1.2deg) translateY(0) scale(1)}
+}
+
 .app-shell{width:min(1440px,100%);min-height:100dvh;margin:auto;padding:18px clamp(18px,4vw,54px) 36px}
 .topbar{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
 .brand{border:0;background:none;display:flex;gap:14px;align-items:center;cursor:pointer}
@@ -198,4 +245,5 @@ nav button.active{color:var(--accent)}
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .stamp-slot .trace{stroke-dashoffset:0}
+  .view-panel,.home-enter .hero-card-stack,.page-enter .page-title,.review-enter .holder{transform:none!important}
 }
