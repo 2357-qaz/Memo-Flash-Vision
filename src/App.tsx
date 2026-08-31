@@ -276,7 +276,7 @@ export default function App(){
   });
 
   if(view==='review'&&current){
-    return <main className="review-shell">
+    return <main className="review-shell view-panel review-enter">
       <header className="review-header">
         <button className="ghost" onClick={()=>setView('home')}>← 返回</button>
         <div className="review-meta">
@@ -353,7 +353,7 @@ export default function App(){
       </nav>
     </header>
 
-    {view==='home'&&<>
+    {view==='home'&&<div className="view-panel home-enter" key="home">
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">MEMORY / REVIEW / TRACE</p>
@@ -401,9 +401,9 @@ export default function App(){
           />)}
         </div>
       </section>
-    </>}
+    </div>}
 
-    {view==='decks'&&<section className="page-section">
+    {view==='decks'&&<section className="page-section view-panel page-enter" key="decks">
       <div className="page-project-row">
         <button className="project-trigger inline" onClick={()=>setProjectMenuOpen(v=>!v)}>
           <DotMark compact/><span><small>PROJECT</small><strong>{activeProject?.name??'选择项目'}</strong></span><b>⌄</b>
@@ -425,7 +425,7 @@ export default function App(){
       </div>
     </section>}
 
-    {view==='progress'&&<section className="page-section">
+    {view==='progress'&&<section className="page-section view-panel page-enter" key="progress">
       <p className="eyebrow">LEARNING TRACE · {activeProject?.name?.toUpperCase()}</p>
       <h1 className="page-title">学习轨迹</h1>
       <div className="progress-cards">
