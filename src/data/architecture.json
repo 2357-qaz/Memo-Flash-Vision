@@ -1,0 +1,1002 @@
+{
+  "decks": [
+    {
+      "id": "software-architecture",
+      "name": "软件架构",
+      "description": "架构基础、DDD、微服务、分布式、数据与缓存、可靠性等。",
+      "source": "architecture-flashcards-mobile",
+      "cardCount": 76,
+      "order": 0
+    }
+  ],
+  "cards": [
+    {
+      "id": "arch-001",
+      "deckId": "software-architecture",
+      "front": "什么是软件架构？",
+      "back": "软件架构是系统的高层结构：模块如何拆分、职责如何分配、组件如何通信，以及这些选择如何支撑性能、可维护性、安全性、可扩展性等质量目标。",
+      "note": "架构不是画几张盒子图；它是关键取舍的集合。图只是尸检报告，决策才是活体。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 1,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-002",
+      "deckId": "software-architecture",
+      "front": "架构和详细设计的区别是什么？",
+      "back": "架构关注难以逆转、影响面大的结构性决策；详细设计关注局部实现。比如是否拆微服务是架构决策，某个类的方法名通常是详细设计。",
+      "note": "边界不是绝对的。判断标准是影响范围、变更成本和风险。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 2,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-003",
+      "deckId": "software-architecture",
+      "front": "什么是质量属性？",
+      "back": "质量属性是系统“好不好用、扛不扛得住、好不好改”的衡量维度，例如可用性、性能、可扩展性、安全性、可维护性、可测试性、可观测性。",
+      "note": "架构讨论不能只说“优雅”。优雅如果不能落到质量属性，经常只是审美摸鱼。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 3,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-004",
+      "deckId": "software-architecture",
+      "front": "高内聚、低耦合是什么意思？",
+      "back": "高内聚是一个模块内部职责集中、围绕同一目的组织；低耦合是模块之间依赖少、变更互相影响小。两者共同降低理解、测试和修改成本。",
+      "note": "不是依赖越少越好，而是不该知道的别知道。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 4,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-005",
+      "deckId": "software-architecture",
+      "front": "组件和连接器分别是什么？",
+      "back": "组件是承担职责的计算单元，如服务、模块、数据库；连接器是组件之间交互的机制，如 HTTP、消息队列、RPC、共享数据库、事件流。",
+      "note": "很多架构问题不是组件选错，而是连接方式选错。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 5,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-006",
+      "deckId": "software-architecture",
+      "front": "什么是 ADR（Architecture Decision Record）？",
+      "back": "ADR 是记录架构决策的轻量文档，通常包含背景、决策、备选方案、取舍理由和后果。它帮助后来者理解为什么当年没有“直接重写”。",
+      "note": "ADR 的价值不是装严肃，是防止团队失忆。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 6,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-007",
+      "deckId": "software-architecture",
+      "front": "C4 模型的四层视图是什么？",
+      "back": "C4 模型通常用 Context、Container、Component、Code 四层描述系统：从系统与外部关系，到容器级部署单元，再到组件结构，最后到代码级细节。",
+      "note": "面向不同读者给不同粒度的图，不要拿类图折磨老板，也不要拿云朵图糊弄工程师。",
+      "tags": [
+        "架构基础",
+        "入门"
+      ],
+      "order": 7,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-008",
+      "deckId": "software-architecture",
+      "front": "为什么架构决策常常是 trade-off？",
+      "back": "因为质量属性会互相牵制。强一致性可能牺牲可用性和延迟；高度抽象可能提升扩展性但增加复杂度；微服务可能提升组织独立性但增加分布式成本。",
+      "note": "没有免费午餐，只有把账单藏到别的团队名下。",
+      "tags": [
+        "架构基础",
+        "中级"
+      ],
+      "order": 8,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-009",
+      "deckId": "software-architecture",
+      "front": "经典分层架构通常分哪几层？",
+      "back": "常见分法是表现层、应用层、领域/业务层、基础设施/数据访问层。表现层处理交互，应用层编排用例，领域层承载核心业务规则，基础设施层处理数据库、外部服务等技术细节。",
+      "note": "分层的核心是依赖方向和职责边界，不是文件夹命名仪式。",
+      "tags": [
+        "分层与边界",
+        "入门"
+      ],
+      "order": 9,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-010",
+      "deckId": "software-architecture",
+      "front": "分层架构最大的好处是什么？",
+      "back": "它把不同变化原因隔离开：UI 改动不应迫使业务规则重写，数据库替换也不应污染核心业务逻辑。这样更容易测试、维护和替换局部实现。",
+      "note": "分层不是为了显得高级，是为了让系统别像一锅粥。",
+      "tags": [
+        "分层与边界",
+        "入门"
+      ],
+      "order": 10,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-011",
+      "deckId": "software-architecture",
+      "front": "什么是依赖倒置原则在架构中的含义？",
+      "back": "高层策略不应该依赖低层实现，二者都依赖抽象。比如领域逻辑依赖 Repository 接口，而不是直接依赖某个 ORM 或数据库驱动。",
+      "note": "这不是把接口到处撒，而是保护核心规则免受基础设施污染。",
+      "tags": [
+        "分层与边界",
+        "中级"
+      ],
+      "order": 11,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-012",
+      "deckId": "software-architecture",
+      "front": "六边形架构（Ports and Adapters）的核心思想是什么？",
+      "back": "把应用核心放在中心，通过端口定义与外界交互的边界，再由适配器连接数据库、HTTP、消息队列、第三方 API 等外部世界。核心业务不直接依赖外部技术。",
+      "note": "重点不是六边形，而是“核心”和“外部”的单向隔离。",
+      "tags": [
+        "分层与边界",
+        "中级"
+      ],
+      "order": 12,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-013",
+      "deckId": "software-architecture",
+      "front": "Clean Architecture 的依赖规则是什么？",
+      "back": "依赖只能从外层指向内层。实体和用例处于内层，框架、数据库、UI 属于外层。内层不应该知道外层的具体实现。",
+      "note": "这条规则的目的不是宗教洁癖，而是让核心业务能脱离框架生存。",
+      "tags": [
+        "分层与边界",
+        "中级"
+      ],
+      "order": 13,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-014",
+      "deckId": "software-architecture",
+      "front": "MVC、MVP、MVVM 主要解决什么问题？",
+      "back": "它们都试图把界面展示、用户交互和业务状态分开，降低 UI 逻辑与业务逻辑的耦合。区别主要在视图与中间层的交互方式。",
+      "note": "前端架构的第一性原理：别让按钮点击事件里长出一整套企业帝国。",
+      "tags": [
+        "分层与边界",
+        "入门"
+      ],
+      "order": 14,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-015",
+      "deckId": "software-architecture",
+      "front": "什么是模块化单体？",
+      "back": "模块化单体是在一个部署单元内保持清晰模块边界的单体系统。它不承担分布式复杂度，但通过模块隔离保留未来拆分能力。",
+      "note": "很多早期项目真正需要的是模块化单体，不是开局微服务祭天。",
+      "tags": [
+        "分层与边界",
+        "中级"
+      ],
+      "order": 15,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-016",
+      "deckId": "software-architecture",
+      "front": "为什么单体架构不等于坏架构？",
+      "back": "单体部署简单、调试容易、事务边界清晰、运维成本低。只有当团队规模、业务边界、部署节奏或扩展需求真的要求拆分时，才需要考虑更复杂架构。",
+      "note": "单体不是原罪，泥球才是。微服务也可以长成分布式泥球。",
+      "tags": [
+        "分层与边界",
+        "入门"
+      ],
+      "order": 16,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-017",
+      "deckId": "software-architecture",
+      "front": "DDD 是什么？",
+      "back": "领域驱动设计是一套围绕业务领域建模的软件设计方法。它强调用业务语言理解问题，把核心复杂度放在领域模型和边界设计上，而不是只围绕数据库表写代码。",
+      "note": "DDD 不是把所有类命名成 Entity、Aggregate、DomainService 的 cosplay。",
+      "tags": [
+        "DDD",
+        "入门"
+      ],
+      "order": 17,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-018",
+      "deckId": "software-architecture",
+      "front": "什么是通用语言（Ubiquitous Language）？",
+      "back": "通用语言是业务人员和开发人员共同使用的一套精确词汇。代码、文档、讨论都尽量使用同一套业务概念，减少翻译误差。",
+      "note": "如果业务说“订单”，代码说“TradeRecord”，数据库叫“biz_txn”，迟早会有人祭天。",
+      "tags": [
+        "DDD",
+        "入门"
+      ],
+      "order": 18,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-019",
+      "deckId": "software-architecture",
+      "front": "什么是限界上下文（Bounded Context）？",
+      "back": "限界上下文是一个模型适用的明确边界。同一个词在不同上下文可以有不同含义，比如“客户”在营销、计费、客服系统中的属性和行为可能完全不同。",
+      "note": "限界上下文是微服务拆分的重要参考，但不是一一等同。",
+      "tags": [
+        "DDD",
+        "中级"
+      ],
+      "order": 19,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-020",
+      "deckId": "software-architecture",
+      "front": "实体和值对象的区别是什么？",
+      "back": "实体有连续身份，属性变化后仍是同一个对象；值对象没有独立身份，只由属性值定义，通常应设计为不可变。比如用户是实体，金额、地址通常是值对象。",
+      "note": "能用值对象就别硬造实体，身份是复杂度的入口。",
+      "tags": [
+        "DDD",
+        "入门"
+      ],
+      "order": 20,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-021",
+      "deckId": "software-architecture",
+      "front": "什么是聚合（Aggregate）？",
+      "back": "聚合是一组强一致性维护的领域对象集合，对外通过聚合根访问。它定义事务一致性边界，保护内部不变量。",
+      "note": "聚合不是对象树越大越好；边界过大会拖垮并发和性能。",
+      "tags": [
+        "DDD",
+        "中级"
+      ],
+      "order": 21,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-022",
+      "deckId": "software-architecture",
+      "front": "应用服务和领域服务有什么区别？",
+      "back": "应用服务负责编排用例、事务、权限和外部调用，通常不放核心业务规则；领域服务承载无法自然归属到某个实体或值对象的领域逻辑。",
+      "note": "应用服务像导演，领域服务像规则专家。导演不要亲自改剧本设定。",
+      "tags": [
+        "DDD",
+        "中级"
+      ],
+      "order": 22,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-023",
+      "deckId": "software-architecture",
+      "front": "Repository 模式的作用是什么？",
+      "back": "Repository 用集合式接口隐藏持久化细节，让领域层通过抽象读取和保存聚合，而不是直接操作 SQL、ORM 或远程存储。",
+      "note": "Repository 不是给每张表生成一个 CRUD 机器。",
+      "tags": [
+        "DDD",
+        "中级"
+      ],
+      "order": 23,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-024",
+      "deckId": "software-architecture",
+      "front": "贫血模型和充血模型的主要区别是什么？",
+      "back": "贫血模型把对象当数据容器，业务逻辑放在服务里；充血模型把相关行为放回领域对象。DDD 更倾向充血模型，以便业务规则和数据保持在同一概念边界内。",
+      "note": "不是所有系统都必须充血；业务简单时贫血模型可能够用。关键看复杂度。",
+      "tags": [
+        "DDD",
+        "中级"
+      ],
+      "order": 24,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-025",
+      "deckId": "software-architecture",
+      "front": "什么是微服务架构？",
+      "back": "微服务把系统拆成一组围绕业务能力组织的小服务，每个服务可独立开发、部署、扩展，并通过网络 API 或消息进行协作。",
+      "note": "“小”不是按代码行数算，而是按业务职责和变更边界算。",
+      "tags": [
+        "微服务",
+        "入门"
+      ],
+      "order": 25,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-026",
+      "deckId": "software-architecture",
+      "front": "微服务最核心的收益是什么？",
+      "back": "核心收益通常是团队自治、独立部署、按业务能力扩展、故障隔离和技术栈局部选择。它不是自动提升性能的仙丹。",
+      "note": "微服务解决组织和演进问题更多，解决代码审美问题更少。",
+      "tags": [
+        "微服务",
+        "入门"
+      ],
+      "order": 26,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-027",
+      "deckId": "software-architecture",
+      "front": "为什么“每个服务拥有自己的数据库”很重要？",
+      "back": "如果多个服务共享同一个数据库并直接读写彼此表，服务边界会被数据库耦合击穿，独立部署和自治会变成幻觉。服务应通过 API、事件或同步机制共享数据。",
+      "note": "共享数据库是分布式单体的温床。",
+      "tags": [
+        "微服务",
+        "中级"
+      ],
+      "order": 27,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-028",
+      "deckId": "software-architecture",
+      "front": "什么是分布式单体？",
+      "back": "分布式单体看似拆成多个服务，但服务之间强耦合、必须一起发布、共享数据库或同步链路过长，最终同时拥有单体和分布式系统的缺点。",
+      "note": "这是架构界的双倍苦难：部署像微服务，痛苦像一坨泥球。",
+      "tags": [
+        "微服务",
+        "中级"
+      ],
+      "order": 28,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-029",
+      "deckId": "software-architecture",
+      "front": "API Gateway 的作用是什么？",
+      "back": "API Gateway 是客户端进入后端服务的统一入口，常处理路由、认证、限流、协议转换、聚合响应和灰度发布等横切能力。",
+      "note": "Gateway 不应塞满业务逻辑，否则它会进化成新的巨型单体。",
+      "tags": [
+        "微服务",
+        "入门"
+      ],
+      "order": 29,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-030",
+      "deckId": "software-architecture",
+      "front": "BFF（Backend for Frontend）是什么？",
+      "back": "BFF 是为特定前端或终端定制的后端层，比如 Web BFF、iOS BFF。它聚合和裁剪后端能力，减少前端直接适配复杂服务。",
+      "note": "BFF 适合多端差异明显的场景；端太少时别为了缩写而加层。",
+      "tags": [
+        "微服务",
+        "中级"
+      ],
+      "order": 30,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-031",
+      "deckId": "software-architecture",
+      "front": "服务发现解决什么问题？",
+      "back": "服务发现让调用方知道目标服务实例在哪里。服务实例可能动态扩缩容、重启、迁移，调用方需要通过注册中心、DNS 或平台机制找到可用实例。",
+      "note": "在动态环境里，硬编码地址就像把航班时刻写进石碑。",
+      "tags": [
+        "微服务",
+        "中级"
+      ],
+      "order": 31,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-032",
+      "deckId": "software-architecture",
+      "front": "同步调用和异步消息各有什么取舍？",
+      "back": "同步调用简单直观、容易拿到结果，但链路耦合强、延迟叠加、故障传播明显；异步消息能解耦和削峰，但引入最终一致性、重复消息、顺序和追踪难题。",
+      "note": "异步不是不用负责，只是把麻烦换了个地方排队。",
+      "tags": [
+        "微服务",
+        "中级"
+      ],
+      "order": 32,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-033",
+      "deckId": "software-architecture",
+      "front": "分布式系统最难的根源是什么？",
+      "back": "网络不可靠、延迟不可忽略、节点会失败、时钟不完全一致、消息可能重复或乱序。单机里很多默认成立的假设，在分布式里都会变成收费项目。",
+      "note": "第一条铁律：网络不是内存调用。",
+      "tags": [
+        "分布式",
+        "入门"
+      ],
+      "order": 33,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-034",
+      "deckId": "software-architecture",
+      "front": "CAP 定理说的是什么？",
+      "back": "在网络分区发生时，分布式系统无法同时保证强一致性和高可用性，只能在一致性 C 与可用性 A 之间取舍；分区容忍 P 在分布式系统中通常必须面对。",
+      "note": "CAP 不是说平时只能三选二，而是分区故障时的取舍。",
+      "tags": [
+        "分布式",
+        "中级"
+      ],
+      "order": 34,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-035",
+      "deckId": "software-architecture",
+      "front": "PACELC 比 CAP 多表达了什么？",
+      "back": "PACELC 表示：如果发生分区 P，要在可用性 A 和一致性 C 之间取舍；否则 E，即正常情况下，也要在延迟 L 和一致性 C 之间取舍。",
+      "note": "它提醒你：就算没故障，也常常在低延迟和强一致之间付账。",
+      "tags": [
+        "分布式",
+        "中级"
+      ],
+      "order": 35,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-036",
+      "deckId": "software-architecture",
+      "front": "什么是最终一致性？",
+      "back": "最终一致性指系统允许短时间内不同副本或服务看到的数据不一致，但在没有新的更新并经过传播后，最终会收敛到一致状态。",
+      "note": "最终一致性不是“最终不知道啥时候一致”。需要补偿、监控和业务可接受边界。",
+      "tags": [
+        "分布式",
+        "入门"
+      ],
+      "order": 36,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-037",
+      "deckId": "software-architecture",
+      "front": "Saga 模式解决什么问题？",
+      "back": "Saga 用一系列本地事务和补偿操作管理跨服务业务流程，避免使用昂贵且脆弱的分布式大事务。常见形式有编排式和协同式。",
+      "note": "补偿不是万能撤销。现实业务里退款、回滚库存、撤销权益都可能有边界条件。",
+      "tags": [
+        "分布式",
+        "中级"
+      ],
+      "order": 37,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-038",
+      "deckId": "software-architecture",
+      "front": "什么是幂等性？",
+      "back": "幂等性指同一操作执行一次和执行多次的最终效果相同。它常用于处理重试、重复消息、网络超时后的不确定状态。",
+      "note": "支付、下单、发券等接口没有幂等设计，迟早会被重试机制教育。",
+      "tags": [
+        "分布式",
+        "中级"
+      ],
+      "order": 38,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-039",
+      "deckId": "software-architecture",
+      "front": "延迟和吞吐量有什么区别？",
+      "back": "延迟是单个请求从发起到完成的时间；吞吐量是单位时间内系统处理的请求数量。低延迟不必然等于高吞吐，高吞吐也可能伴随排队延迟增加。",
+      "note": "性能优化先问指标，不要只喊“快一点”。",
+      "tags": [
+        "分布式",
+        "入门"
+      ],
+      "order": 39,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-040",
+      "deckId": "software-architecture",
+      "front": "水平扩展和垂直扩展分别是什么？",
+      "back": "垂直扩展是增强单台机器资源，如更多 CPU、内存；水平扩展是增加更多实例或节点。水平扩展通常更适合大规模和高可用，但需要无状态、分片或协调机制配合。",
+      "note": "加机器不是魔法，状态和热点会追着你要债。",
+      "tags": [
+        "分布式",
+        "入门"
+      ],
+      "order": 40,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-041",
+      "deckId": "software-architecture",
+      "front": "索引为什么能提升查询性能？",
+      "back": "索引用额外数据结构加速定位数据，避免全表扫描。代价是占用存储、降低写入速度，并需要维护合适的选择性和查询匹配。",
+      "note": "索引不是越多越好。每个索引都在写入时收税。",
+      "tags": [
+        "数据与缓存",
+        "入门"
+      ],
+      "order": 41,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-042",
+      "deckId": "software-architecture",
+      "front": "数据库事务的 ACID 是什么？",
+      "back": "ACID 指原子性、一致性、隔离性、持久性。它描述事务要么全部成功要么全部失败，保持约束，在并发下有隔离效果，提交后能持久保存。",
+      "note": "隔离级别不同，脏读、不可重复读、幻读等现象的处理也不同。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 42,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-043",
+      "deckId": "software-architecture",
+      "front": "乐观锁和悲观锁的区别是什么？",
+      "back": "悲观锁假设冲突常发生，先加锁再操作；乐观锁假设冲突较少，提交时通过版本号或条件更新检测冲突。高并发读多写少场景常用乐观锁。",
+      "note": "乐观锁不是不处理冲突，而是把冲突处理推迟到提交。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 43,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-044",
+      "deckId": "software-architecture",
+      "front": "读写分离解决什么问题？",
+      "back": "读写分离把写入交给主库，把读取分散到从库，提升读吞吐并降低主库压力。代价是复制延迟可能导致读到旧数据。",
+      "note": "读写分离的敌人是“我刚写完为什么读不到”。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 44,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-045",
+      "deckId": "software-architecture",
+      "front": "分库分表/分片的核心难点是什么？",
+      "back": "难点包括分片键选择、跨分片查询、分布式事务、数据再均衡、热点分片、全局唯一 ID 和运维复杂度。",
+      "note": "分片是扩展能力，也是复杂度贷款。别太早借。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 45,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-046",
+      "deckId": "software-architecture",
+      "front": "Cache-Aside 模式是什么？",
+      "back": "应用先查缓存，未命中再查数据库并回填缓存；写入时通常先更新数据库，再删除或更新缓存。这是业务系统最常见的缓存使用方式之一。",
+      "note": "缓存不是数据库的影子替身，它有一致性成本。",
+      "tags": [
+        "数据与缓存",
+        "入门"
+      ],
+      "order": 46,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-047",
+      "deckId": "software-architecture",
+      "front": "缓存穿透、击穿、雪崩分别是什么？",
+      "back": "穿透是大量请求查询不存在的数据绕过缓存打到数据库；击穿是热点 key 过期后大量请求同时打到数据库；雪崩是大量 key 同时失效导致数据库被集中冲击。",
+      "note": "常见处理：空值缓存、布隆过滤器、互斥重建、随机 TTL、多级缓存。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 47,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-048",
+      "deckId": "software-architecture",
+      "front": "缓存失效为什么是架构难题？",
+      "back": "因为缓存、数据库、消息、客户端可能出现时序差。更新缓存、删除缓存、延迟双删、订阅 binlog 等方案都有边界，需要结合业务一致性要求选择。",
+      "note": "“把缓存清一下”是简单句，不是简单事。",
+      "tags": [
+        "数据与缓存",
+        "中级"
+      ],
+      "order": 48,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-049",
+      "deckId": "software-architecture",
+      "front": "CDN 在架构中通常解决什么问题？",
+      "back": "CDN 把静态资源或可缓存内容分发到离用户更近的节点，降低访问延迟、减少源站压力，并提升抗流量冲击能力。",
+      "note": "适合图片、视频、前端资源、下载文件等内容，不适合强个性化且频繁变化的数据。",
+      "tags": [
+        "数据与缓存",
+        "入门"
+      ],
+      "order": 49,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-050",
+      "deckId": "software-architecture",
+      "front": "消息队列主要有什么作用？",
+      "back": "消息队列常用于异步解耦、削峰填谷、缓冲突发流量、任务分发和事件通知。它让生产者和消费者在时间上解耦。",
+      "note": "队列不是垃圾桶，堆积的消息不会自己变成业务成功。",
+      "tags": [
+        "消息与事件",
+        "入门"
+      ],
+      "order": 50,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-051",
+      "deckId": "software-architecture",
+      "front": "At-most-once、At-least-once、Exactly-once 分别是什么意思？",
+      "back": "At-most-once 最多投递一次，可能丢；At-least-once 至少投递一次，可能重复；Exactly-once 看似正好一次，但通常依赖特定系统边界和幂等/事务配合，不能随便泛化。",
+      "note": "工程上更常见的可靠路线是 at-least-once + 幂等处理。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 51,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-052",
+      "deckId": "software-architecture",
+      "front": "死信队列（DLQ）有什么用？",
+      "back": "死信队列用于保存多次消费失败、格式非法或无法处理的消息，便于排查、告警和人工/自动补偿，避免坏消息阻塞主消费链路。",
+      "note": "DLQ 不是坟场，没人处理的死信只是晚点爆炸的债务。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 52,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-053",
+      "deckId": "software-architecture",
+      "front": "背压（Backpressure）是什么？",
+      "back": "背压是当下游处理不过来时，向上游传递压力或限制速率，避免队列无限堆积、内存耗尽或级联崩溃。",
+      "note": "系统要学会说“慢点”，否则它只会用宕机表达情绪。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 53,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-054",
+      "deckId": "software-architecture",
+      "front": "事件驱动架构的核心思想是什么？",
+      "back": "系统通过事件表达状态变化，各组件订阅并响应事件。它可以降低同步耦合、支持扩展新消费者，但会增加追踪、顺序、一致性和调试复杂度。",
+      "note": "事件是事实，不是命令。比如 OrderPaid 表示订单已支付，而不是叫你去支付订单。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 54,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-055",
+      "deckId": "software-architecture",
+      "front": "Outbox Pattern 解决什么问题？",
+      "back": "Outbox Pattern 把业务数据变更和待发送事件写入同一个本地事务，再由后台任务可靠发布事件，避免数据库提交成功但消息发送失败造成不一致。",
+      "note": "它是本地事务和异步消息之间的安全垫。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 55,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-056",
+      "deckId": "software-architecture",
+      "front": "CQRS 是什么？",
+      "back": "CQRS 将命令写入模型和查询读取模型分离。写侧关注业务规则和一致性，读侧可为查询性能做专门优化。代价是模型同步和最终一致性复杂度。",
+      "note": "CQRS 不是 CRUD 的高级皮肤，适合读写模型差异明显的场景。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 56,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-057",
+      "deckId": "software-architecture",
+      "front": "事件溯源（Event Sourcing）是什么？",
+      "back": "事件溯源把状态变化事件作为事实来源，通过重放事件得到当前状态。它提供完整历史和审计能力，但要求事件建模、版本演进和查询投影设计。",
+      "note": "不要为了酷把所有系统都做成事件溯源。审计需求不强时，代价可能不值得。",
+      "tags": [
+        "消息与事件",
+        "中级"
+      ],
+      "order": 57,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-058",
+      "deckId": "software-architecture",
+      "front": "高可用系统关注什么？",
+      "back": "高可用关注系统在故障、流量波动、依赖异常时仍能持续提供可接受服务。常见手段包括冗余、故障转移、限流、降级、熔断、监控告警和演练。",
+      "note": "高可用不是永不失败，而是失败时别一起陪葬。",
+      "tags": [
+        "可用性与韧性",
+        "入门"
+      ],
+      "order": 58,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-059",
+      "deckId": "software-architecture",
+      "front": "熔断器模式解决什么问题？",
+      "back": "当下游服务持续失败或超时时，熔断器会暂时停止调用，快速失败或走降级逻辑，防止请求堆积和故障级联。之后再半开探测恢复情况。",
+      "note": "熔断不是放弃用户，是防止整条链路一起殉情。",
+      "tags": [
+        "可用性与韧性",
+        "中级"
+      ],
+      "order": 59,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-060",
+      "deckId": "software-architecture",
+      "front": "为什么重试可能造成灾难？",
+      "back": "重试能处理偶发失败，但如果下游已经过载，盲目重试会放大流量，形成重试风暴。应配合超时、指数退避、抖动、幂等和重试预算。",
+      "note": "失败时所有客户端同时“再试一次”，系统就会听见命运的鼓点。",
+      "tags": [
+        "可用性与韧性",
+        "中级"
+      ],
+      "order": 60,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-061",
+      "deckId": "software-architecture",
+      "front": "超时为什么必须显式设置？",
+      "back": "没有合理超时，请求可能长期占用线程、连接和内存，导致资源耗尽。超时要根据业务链路和下游 SLO 设定，并避免层层叠加超过用户可接受时间。",
+      "note": "默认超时常常是架构事故的隐藏彩蛋。",
+      "tags": [
+        "可用性与韧性",
+        "入门"
+      ],
+      "order": 61,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-062",
+      "deckId": "software-architecture",
+      "front": "舱壁隔离（Bulkhead）是什么？",
+      "back": "舱壁隔离把资源池、线程池、连接池或实例按业务/依赖隔离，避免某个故障区域耗尽全局资源，拖垮整个系统。",
+      "note": "船舱要分隔，服务资源也要分隔。否则一个洞，全船沉。",
+      "tags": [
+        "可用性与韧性",
+        "中级"
+      ],
+      "order": 62,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-063",
+      "deckId": "software-architecture",
+      "front": "限流和降级分别是什么？",
+      "back": "限流是在流量超过承载能力时限制进入系统的请求；降级是在部分能力不可用时提供简化服务或兜底结果，以保核心链路。",
+      "note": "限流保命，降级保体验。两者都比硬扛到雪崩体面。",
+      "tags": [
+        "可用性与韧性",
+        "入门"
+      ],
+      "order": 63,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-064",
+      "deckId": "software-architecture",
+      "front": "蓝绿发布和金丝雀发布有什么区别？",
+      "back": "蓝绿发布维护两套环境，在新旧版本之间整体切换；金丝雀发布先让少量流量进入新版本，观察稳定后逐步扩大。",
+      "note": "金丝雀不是为了优雅，是为了让事故先小规模暴露。",
+      "tags": [
+        "可用性与韧性",
+        "中级"
+      ],
+      "order": 64,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-065",
+      "deckId": "software-architecture",
+      "front": "日志、指标、链路追踪分别看什么？",
+      "back": "日志记录离散事件和上下文；指标观察系统数值趋势，如 QPS、延迟、错误率；链路追踪展示一次请求跨服务的调用路径和耗时。",
+      "note": "三者互补。只有日志时，你会在海里捞针；只有指标时，你知道疼但不知道哪疼。",
+      "tags": [
+        "可观测性与安全",
+        "入门"
+      ],
+      "order": 65,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-066",
+      "deckId": "software-architecture",
+      "front": "SLI、SLO、SLA 分别是什么？",
+      "back": "SLI 是服务水平指标，如 99 分位延迟；SLO 是内部目标，如 99.9% 请求成功；SLA 是对外承诺，通常带有补偿或合同约束。",
+      "note": "SLO 是工程目标，SLA 是商业承诺。别把口号写成赔款协议。",
+      "tags": [
+        "可观测性与安全",
+        "入门"
+      ],
+      "order": 66,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-067",
+      "deckId": "software-architecture",
+      "front": "分布式追踪为什么重要？",
+      "back": "一次用户请求可能经过多个服务、队列和数据库。分布式追踪通过 trace id/span id 串联链路，帮助定位慢点、错误传播和跨服务依赖。",
+      "note": "没有 trace id 的微服务排障，有时像黑夜里找一只黑猫。猫还不一定在。",
+      "tags": [
+        "可观测性与安全",
+        "中级"
+      ],
+      "order": 67,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-068",
+      "deckId": "software-architecture",
+      "front": "认证和授权有什么区别？",
+      "back": "认证确认“你是谁”，如密码、短信、OAuth 登录；授权确认“你能做什么”，如角色、权限、资源访问策略。",
+      "note": "登录成功不代表能删库。虽然有些系统写着写着就忘了这件事。",
+      "tags": [
+        "可观测性与安全",
+        "入门"
+      ],
+      "order": 68,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-069",
+      "deckId": "software-architecture",
+      "front": "JWT 的常见风险是什么？",
+      "back": "JWT 无状态、便于跨服务传递身份，但风险包括过期时间过长、泄露后难撤销、错误存储、签名算法配置错误、把敏感信息放进 payload。",
+      "note": "JWT payload 只是编码，不是加密。别把秘密写进去。",
+      "tags": [
+        "可观测性与安全",
+        "中级"
+      ],
+      "order": 69,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-070",
+      "deckId": "software-architecture",
+      "front": "零信任架构的基本思想是什么？",
+      "back": "零信任不默认信任网络位置或内部系统，每次访问都应基于身份、设备、上下文和最小权限进行验证与授权。",
+      "note": "内网不是伊甸园。攻击者进来后，默认信任会变成高速公路。",
+      "tags": [
+        "可观测性与安全",
+        "中级"
+      ],
+      "order": 70,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-071",
+      "deckId": "software-architecture",
+      "front": "威胁建模在架构阶段有什么价值？",
+      "back": "威胁建模在设计早期识别资产、攻击面、威胁、滥用路径和缓解措施，避免系统上线后用补丁修补根本性安全缺陷。",
+      "note": "越早发现安全边界错误，越不像在给大楼地基贴创可贴。",
+      "tags": [
+        "可观测性与安全",
+        "中级"
+      ],
+      "order": 71,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-072",
+      "deckId": "software-architecture",
+      "front": "为什么不要过早引入复杂架构？",
+      "back": "复杂架构会带来学习、开发、测试、部署、观测和运维成本。如果业务规模和团队能力还没到，复杂架构往往不是加速器，而是阻尼器。",
+      "note": "架构是药，不是香水。没病乱吃会出事。",
+      "tags": [
+        "工程演进",
+        "入门"
+      ],
+      "order": 72,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-073",
+      "deckId": "software-architecture",
+      "front": "绞杀者榕树模式（Strangler Fig）是什么？",
+      "back": "它是一种渐进迁移策略：在旧系统外逐步构建新能力，把流量和功能一点点迁移过去，最终替代旧系统，而不是一次性大爆炸重写。",
+      "note": "重写系统最危险的地方是旧系统还活着，新系统也没活明白。",
+      "tags": [
+        "工程演进",
+        "中级"
+      ],
+      "order": 73,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-074",
+      "deckId": "software-architecture",
+      "front": "功能开关（Feature Flag）有什么用？",
+      "back": "功能开关允许代码已部署但功能按用户、环境、比例或条件逐步开启。它支持灰度、A/B 测试、快速回滚和降低发布风险。",
+      "note": "开关本身也会腐烂。长期不用的 flag 要清理。",
+      "tags": [
+        "工程演进",
+        "中级"
+      ],
+      "order": 74,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-075",
+      "deckId": "software-architecture",
+      "front": "API 版本管理为什么重要？",
+      "back": "API 被外部或多个客户端依赖后，破坏性变更会影响调用方。版本管理、兼容字段、废弃周期和迁移文档能降低演进风险。",
+      "note": "上线后的 API 像公共道路，不能半夜偷偷改成河。",
+      "tags": [
+        "工程演进",
+        "入门"
+      ],
+      "order": 75,
+      "source": "architecture-flashcards-mobile"
+    },
+    {
+      "id": "arch-076",
+      "deckId": "software-architecture",
+      "front": "IaC（Infrastructure as Code）是什么？",
+      "back": "IaC 用代码描述和管理基础设施，如网络、服务器、数据库、权限和部署配置，使环境可复现、可审计、可版本化。",
+      "note": "手点控制台很快，直到你要解释生产环境到底是谁点坏的。",
+      "tags": [
+        "工程演进",
+        "中级"
+      ],
+      "order": 76,
+      "source": "architecture-flashcards-mobile"
+    }
+  ]
+}
