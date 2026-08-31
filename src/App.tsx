@@ -318,16 +318,15 @@ export default function App(){
             </div>
 
             <div className="card-face back">
+              <div className={'stamp-slot '+(stamp?'show':'')} aria-hidden="true">
+                {stamp&&<Stamp rating={stamp}/>}
+              </div>
               <div className="card-kicker">{deckMap.get(current.deckId)?.name??'ANSWER'}</div>
               <div className="card-main">
                 {current.note&&<small className="answer-note">{current.note}</small>}
                 <p className="answer-text">{current.back}</p>
               </div>
               <div className="card-foot">轻点可翻回正面</div>
-            </div>
-
-            <div className={'stamp-slot '+(stamp?'show':'')} aria-hidden="true">
-              {stamp&&<Stamp rating={stamp}/>}
             </div>
           </section>
         </div>
