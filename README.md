@@ -42,4 +42,4 @@ See [docs/ALPHA0.md](docs/ALPHA0.md) and [docs/MIGRATION.md](docs/MIGRATION.md).
 
 ## GitHub Pages
 
-A Pages deployment workflow is included. After GitHub Pages is enabled with **Source: GitHub Actions**, the workflow can deploy the Vite build automatically.
+GitHub Pages is enabled with **Source: GitHub Actions**. Pushes to `main` build and deploy the Vite app automatically.
