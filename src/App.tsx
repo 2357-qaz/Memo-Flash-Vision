@@ -286,10 +286,10 @@ export default function App(){
       </header>
 
       <div className="review-stage">
-        <div className="card-holder">
+        <div className="holder">
           <section
             ref={cardRef}
-            className={'study-card '+(flipped?'flipped ':'')+(locked?'locked':'')}
+            className={'card '+(flipped?'flipped ':'')+(locked?'locked':'')}
             aria-pressed={flipped}
             onClick={toggleFlip}
             onTouchStart={e=>{
@@ -311,13 +311,13 @@ export default function App(){
               }
             }}
           >
-            <div className="card-face front">
+            <div className="face front">
               <div className="card-kicker">{current.tags.join(' · ')||'FLASHCARD'}</div>
               <div className="card-main"><h1>{current.front}</h1></div>
               <div className="card-foot">轻点翻面 · 左滑不认识 · 右滑认识 · 下滑眼熟</div>
             </div>
 
-            <div className="card-face back">
+            <div className="face back">
               <div className={'stamp-slot '+(stamp?'show':'')} aria-hidden="true">
                 {stamp&&<Stamp rating={stamp}/>}
               </div>
