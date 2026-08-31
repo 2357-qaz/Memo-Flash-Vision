@@ -357,23 +357,6 @@ export default function App(){
     {view==='home'&&<>
       <section className="hero">
         <div className="hero-copy">
-          <div className="project-control">
-            <button className="project-trigger" onClick={()=>setProjectMenuOpen(v=>!v)}>
-              <DotMark compact/>
-              <span><small>DAILY PROJECT</small><strong>{activeProject?.name??'选择项目'}</strong></span>
-              <b>⌄</b>
-            </button>
-            {projectMenuOpen&&<ProjectMenu
-              projects={projects}
-              decks={decks}
-              cards={cards}
-              states={stateMap}
-              today={today}
-              activeProjectId={activeProjectId}
-              onChoose={id=>void chooseProject(id)}
-            />}
-          </div>
-
           <p className="eyebrow">MEMORY / REVIEW / TRACE</p>
           <h1>FLASHCARDS</h1>
           <p className="hero-cn">{activeProject?.name??'记忆 · 复习 · 追踪'}</p>
@@ -490,10 +473,15 @@ function ProjectTile({project,active,decks,cards,states,today,onChoose}:{
   const list=cards.filter(c=>deckIds.has(c.deckId));
   const due=buildTodayQueue(list,states,today).length;
   return <button className={'project-tile '+(active?'active':'')} onClick={onChoose}>
-    <div className="project-orbit"><DotMark compact/></div>
+    <ProjectSwatch projectId={project.id}/>
     <div><small>{active?'DAILY PROJECT':'PROJECT'}</small><h3>{project.name}</h3><p>{deckIds.size} 个卡组 · {list.length} 张卡</p></div>
     <div className="project-due"><strong>{due}</strong><span>今日</span></div>
   </button>;
+}
+
+function ProjectSwatch({projectId}:{projectId:string}){
+  const variant=projectId==='cet6'?'streak':'smear';
+  return <span className={'project-swatch '+variant} aria-hidden="true"><i/><b/></span>;
 }
 
 function Stat({label,value,sub}:{label:string;value:string;sub:string}){
