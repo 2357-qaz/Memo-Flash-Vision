@@ -1,0 +1,446 @@
+{
+  "decks": [
+    {
+      "id": "hm-line-surface",
+      "name": "曲线与曲面积分",
+      "description": "两类曲线积分、两类曲面积分、方向与参数化。",
+      "source": "memo-math",
+      "cardCount": 12,
+      "order": 1
+    },
+    {
+      "id": "hm-double-green",
+      "name": "二重积分与 Green 公式",
+      "description": "二重积分换元、极坐标、Green 公式与复联通区域。",
+      "source": "memo-math",
+      "cardCount": 10,
+      "order": 2
+    },
+    {
+      "id": "hm-series",
+      "name": "无穷级数",
+      "description": "常见级数、幂级数与 Taylor 展开。",
+      "source": "memo-math",
+      "cardCount": 10,
+      "order": 3
+    }
+  ],
+  "cards": [
+    {
+      "id": "hm-001",
+      "deckId": "hm-line-surface",
+      "front": "第一类曲线积分的参数化公式是什么？",
+      "back": "若 L: r(t)=(x(t),y(t),z(t)), a≤t≤b，则 ∫_L f ds = ∫_a^b f(r(t))·|r'(t)| dt。二维时 |r'|=√(x'^2+y'^2)。",
+      "note": "ds 只与弧长有关，不随曲线定向改变。",
+      "tags": [
+        "曲线积分",
+        "公式"
+      ],
+      "order": 1,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-002",
+      "deckId": "hm-line-surface",
+      "front": "第二类曲线积分如何参数化？",
+      "back": "∫_L P dx+Q dy+R dz = ∫_a^b [P x'(t)+Q y'(t)+R z'(t)] dt。",
+      "note": "反向时整体变号。",
+      "tags": [
+        "曲线积分",
+        "公式"
+      ],
+      "order": 2,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-003",
+      "deckId": "hm-line-surface",
+      "front": "曲线反向时，两类曲线积分分别怎样变化？",
+      "back": "第一类曲线积分 ∫f ds 不变；第二类曲线积分 ∫Pdx+Qdy(+Rdz) 整体变号。",
+      "note": "方向只进入 dx,dy,dz，不进入 ds。",
+      "tags": [
+        "曲线积分",
+        "方向"
+      ],
+      "order": 3,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-004",
+      "deckId": "hm-line-surface",
+      "front": "若曲线 y=y(x)，弧长元 ds 如何写？",
+      "back": "ds = √(1+[y'(x)]²) dx。",
+      "note": "若 x=x(y)，则 ds=√(1+[x'(y)]²)dy。",
+      "tags": [
+        "曲线积分",
+        "弧长元"
+      ],
+      "order": 4,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-005",
+      "deckId": "hm-line-surface",
+      "front": "空间曲线 r(t) 的弧长元是什么？",
+      "back": "ds = |r'(t)|dt = √(x'^2+y'^2+z'^2) dt。",
+      "note": "",
+      "tags": [
+        "曲线积分",
+        "弧长元"
+      ],
+      "order": 5,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-006",
+      "deckId": "hm-line-surface",
+      "front": "第一类曲面积分的基本形式是什么？",
+      "back": "∬_Σ f(x,y,z) dS。若 Σ:z=z(x,y)，则 dS=√(1+z_x²+z_y²) dxdy。",
+      "note": "",
+      "tags": [
+        "曲面积分",
+        "公式"
+      ],
+      "order": 6,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-007",
+      "deckId": "hm-line-surface",
+      "front": "曲面 z=z(x,y) 向上取向时，向量面积元怎样写？",
+      "back": "n dS = (-z_x,-z_y,1) dxdy。",
+      "note": "向下取向整体取负。",
+      "tags": [
+        "曲面积分",
+        "方向"
+      ],
+      "order": 7,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-008",
+      "deckId": "hm-line-surface",
+      "front": "第二类曲面积分的几何意义是什么？",
+      "back": "它是向量场穿过有向曲面的通量：∬_Σ F·n dS。",
+      "note": "常写成 ∬ P dydz + Q dzdx + R dxdy。",
+      "tags": [
+        "曲面积分",
+        "通量"
+      ],
+      "order": 8,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-009",
+      "deckId": "hm-line-surface",
+      "front": "Gauss 散度定理是什么？",
+      "back": "对封闭曲面 ∂Ω 外向取向：∯_{∂Ω} F·n dS = ∭_Ω div F dV。",
+      "note": "div F=∂P/∂x+∂Q/∂y+∂R/∂z。",
+      "tags": [
+        "曲面积分",
+        "Gauss"
+      ],
+      "order": 9,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-010",
+      "deckId": "hm-line-surface",
+      "front": "Stokes 公式是什么？",
+      "back": "∮_{∂Σ} F·dr = ∬_Σ (curl F)·n dS，边界方向与曲面法向按右手定则匹配。",
+      "note": "",
+      "tags": [
+        "曲面积分",
+        "Stokes"
+      ],
+      "order": 10,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-011",
+      "deckId": "hm-line-surface",
+      "front": "第二类曲面积分为什么依赖方向？",
+      "back": "因为法向量 n 取反时 F·n 也取反，所以通量整体变号。",
+      "note": "第一类曲面积分不依赖取向。",
+      "tags": [
+        "曲面积分",
+        "方向"
+      ],
+      "order": 11,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-012",
+      "deckId": "hm-line-surface",
+      "front": "如何判断曲线积分 ∫Pdx+Qdy 与路径无关？",
+      "back": "在单连通区域且 P,Q 有连续一阶偏导时，若 ∂P/∂y=∂Q/∂x，则积分与路径无关，并存在势函数 u 使 du=Pdx+Qdy。",
+      "note": "",
+      "tags": [
+        "曲线积分",
+        "路径无关"
+      ],
+      "order": 12,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-013",
+      "deckId": "hm-double-green",
+      "front": "二重积分的迭代积分原理是什么？",
+      "back": "把区域 D 按一种坐标方向切片。例如 D={a≤x≤b, φ₁(x)≤y≤φ₂(x)}，则 ∬_D f dA = ∫_a^b∫_{φ₁}^{φ₂} f(x,y) dydx。",
+      "note": "也可以交换积分次序。",
+      "tags": [
+        "二重积分",
+        "公式"
+      ],
+      "order": 13,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-014",
+      "deckId": "hm-double-green",
+      "front": "极坐标变换时面积元为何多一个 r？",
+      "back": "x=r cosθ, y=r sinθ 的 Jacobian 为 r，因此 dxdy = r drdθ。",
+      "note": "",
+      "tags": [
+        "二重积分",
+        "极坐标"
+      ],
+      "order": 14,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-015",
+      "deckId": "hm-double-green",
+      "front": "Green 公式的标准形式是什么？",
+      "back": "若 D 正向边界 ∂D，∮_{∂D} P dx+Q dy = ∬_D (∂Q/∂x-∂P/∂y) dA。",
+      "note": "正向：区域始终位于行进方向左侧。",
+      "tags": [
+        "Green公式",
+        "公式"
+      ],
+      "order": 15,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-016",
+      "deckId": "hm-double-green",
+      "front": "单连通区域边界若按顺时针走，Green 公式怎样改？",
+      "back": "整个边界积分取负：∮_{顺时针}(Pdx+Qdy) = - ∬_D (Q_x-P_y)dA。",
+      "note": "不是只给某一项加负号。",
+      "tags": [
+        "Green公式",
+        "方向"
+      ],
+      "order": 16,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-017",
+      "deckId": "hm-double-green",
+      "front": "复联通区域的 Green 正向边界如何定向？",
+      "back": "外边界逆时针，所有内边界顺时针，使区域始终位于边界行进方向左侧。",
+      "note": "",
+      "tags": [
+        "Green公式",
+        "复联通"
+      ],
+      "order": 17,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-018",
+      "deckId": "hm-double-green",
+      "front": "若复联通区域的内外边界都按逆时针给出，如何使用 Green 公式？",
+      "back": "把内边界改成顺时针，等价于在总边界积分中减去各个逆时针内边界积分。",
+      "note": "外边界逆时针积分 − 内边界逆时针积分。",
+      "tags": [
+        "Green公式",
+        "复联通"
+      ],
+      "order": 18,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-019",
+      "deckId": "hm-double-green",
+      "front": "如何用 Green 公式计算平面区域面积？",
+      "back": "A = 1/2 ∮_{∂D}(x dy - y dx)。也可用 A=∮ x dy 或 A=-∮ y dx（正向边界）。",
+      "note": "",
+      "tags": [
+        "Green公式",
+        "面积"
+      ],
+      "order": 19,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-020",
+      "deckId": "hm-double-green",
+      "front": "二重积分遇到关于 x 或 y 的奇函数时怎样利用对称性？",
+      "back": "若区域关于对应坐标轴对称，而被积函数关于该变量为奇函数，则积分为 0。",
+      "note": "偶函数可把区域减半再乘 2。",
+      "tags": [
+        "二重积分",
+        "对称性"
+      ],
+      "order": 20,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-021",
+      "deckId": "hm-double-green",
+      "front": "变量代换的一般 Jacobian 公式是什么？",
+      "back": "若 x=x(u,v), y=y(u,v)，则 dxdy = |∂(x,y)/∂(u,v)| dudv。",
+      "note": "积分区域也要同步变换。",
+      "tags": [
+        "二重积分",
+        "换元"
+      ],
+      "order": 21,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-022",
+      "deckId": "hm-double-green",
+      "front": "Green 公式与路径无关判据有什么关系？",
+      "back": "若 Q_x-P_y=0 且区域单连通，则任意闭曲线积分为 0，因此 ∫Pdx+Qdy 与路径无关。",
+      "note": "",
+      "tags": [
+        "Green公式",
+        "路径无关"
+      ],
+      "order": 22,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-023",
+      "deckId": "hm-series",
+      "front": "几何级数的展开式是什么？",
+      "back": "1/(1-x)=Σ_{n=0}∞ x^n，收敛域 |x|<1。",
+      "note": "由此可通过代换得到许多幂级数。",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 23,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-024",
+      "deckId": "hm-series",
+      "front": "e^x 的 Maclaurin 展开是什么？",
+      "back": "e^x = Σ_{n=0}∞ x^n/n! = 1+x+x²/2!+x³/3!+⋯。",
+      "note": "对所有实数/复数 x 收敛。",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 24,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-025",
+      "deckId": "hm-series",
+      "front": "sin x 的 Maclaurin 展开是什么？",
+      "back": "sin x = x - x³/3! + x⁵/5! - x⁷/7! + ⋯。",
+      "note": "一般项 (-1)^n x^{2n+1}/(2n+1)!。",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 25,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-026",
+      "deckId": "hm-series",
+      "front": "cos x 的 Maclaurin 展开是什么？",
+      "back": "cos x = 1 - x²/2! + x⁴/4! - x⁶/6! + ⋯。",
+      "note": "一般项 (-1)^n x^{2n}/(2n)!。",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 26,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-027",
+      "deckId": "hm-series",
+      "front": "ln(1+x) 的幂级数是什么？",
+      "back": "ln(1+x)=x-x²/2+x³/3-x⁴/4+⋯，在 -1<x≤1 收敛。",
+      "note": "x=1 时得到交错调和级数。",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 27,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-028",
+      "deckId": "hm-series",
+      "front": "arctan x 的展开式是什么？",
+      "back": "arctan x = x - x³/3 + x⁵/5 - x⁷/7 + ⋯，|x|≤1 时端点需单独判断。",
+      "note": "",
+      "tags": [
+        "无穷级数",
+        "展开"
+      ],
+      "order": 28,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-029",
+      "deckId": "hm-series",
+      "front": "Taylor 公式的基本形式是什么？",
+      "back": "f(x)=Σ_{n=0}∞ f^{(n)}(x₀)/n! ·(x-x₀)^n，在 Taylor 级数确实收敛到 f 的区间内成立。",
+      "note": "x₀=0 即 Maclaurin 级数。",
+      "tags": [
+        "无穷级数",
+        "Taylor"
+      ],
+      "order": 29,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-030",
+      "deckId": "hm-series",
+      "front": "p 级数 Σ1/n^p 何时收敛？",
+      "back": "p>1 收敛；p≤1 发散。",
+      "note": "调和级数 p=1 发散。",
+      "tags": [
+        "无穷级数",
+        "判敛"
+      ],
+      "order": 30,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-031",
+      "deckId": "hm-series",
+      "front": "比值判别法怎样用？",
+      "back": "对正项级数，若 lim a_{n+1}/a_n = L：L<1 收敛，L>1 发散，L=1 不能判断。",
+      "note": "",
+      "tags": [
+        "无穷级数",
+        "判敛"
+      ],
+      "order": 31,
+      "source": "memo-math"
+    },
+    {
+      "id": "hm-032",
+      "deckId": "hm-series",
+      "front": "幂级数的收敛半径如何理解？",
+      "back": "Σ a_n(x-x₀)^n 通常在 |x-x₀|<R 绝对收敛，在 |x-x₀|>R 发散，端点需单独判断。",
+      "note": "常用比值法或根值法求 R。",
+      "tags": [
+        "无穷级数",
+        "幂级数"
+      ],
+      "order": 32,
+      "source": "memo-math"
+    }
+  ]
+}

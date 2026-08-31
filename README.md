@@ -10,7 +10,9 @@ Current foundation:
 - Project-scoped Daily review
 - 76 software architecture cards
 - 24 CET-6 decks / 2,345 vocabulary cards
-- **2,421 cards total**
+- 3 高数 decks / 32 cards
+- 3 复变 decks / 32 cards
+- **2485 cards total**
 - React + TypeScript + Vite
 - IndexedDB via Dexie
 - Again / Hard / Good scheduler

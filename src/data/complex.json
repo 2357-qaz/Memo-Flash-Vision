@@ -1,0 +1,446 @@
+{
+  "decks": [
+    {
+      "id": "cx-numbers-maps",
+      "name": "复数与复变换",
+      "description": "复数极形式、旋转缩放、无穷远点与 Möbius 变换。",
+      "source": "memo-complex",
+      "cardCount": 10,
+      "order": 1
+    },
+    {
+      "id": "cx-analytic",
+      "name": "解析函数",
+      "description": "复导数、Cauchy-Riemann 方程与调和函数。",
+      "source": "memo-complex",
+      "cardCount": 10,
+      "order": 2
+    },
+    {
+      "id": "cx-integrals-residue",
+      "name": "复积分与留数",
+      "description": "Cauchy 定理、积分公式、Laurent 展开与留数。",
+      "source": "memo-complex",
+      "cardCount": 12,
+      "order": 3
+    }
+  ],
+  "cards": [
+    {
+      "id": "cx-001",
+      "deckId": "cx-numbers-maps",
+      "front": "复数 z=x+iy 的模和辐角分别是什么？",
+      "back": "|z|=√(x²+y²)；arg z 是从正实轴到向量 (x,y) 的角度，具有 2π 周期。",
+      "note": "主辐角通常取 (-π,π] 或 [0,2π)。",
+      "tags": [
+        "复数",
+        "基础"
+      ],
+      "order": 1,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-002",
+      "deckId": "cx-numbers-maps",
+      "front": "复数的极形式是什么？",
+      "back": "z = r e^{iθ} = r(cosθ+i sinθ)，其中 r=|z|，θ=arg z。",
+      "note": "",
+      "tags": [
+        "复数",
+        "极形式"
+      ],
+      "order": 2,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-003",
+      "deckId": "cx-numbers-maps",
+      "front": "乘以复数 ρe^{iφ} 的几何意义是什么？",
+      "back": "模长乘以 ρ，同时逆时针旋转 φ。",
+      "note": "ρ>0。",
+      "tags": [
+        "复变换",
+        "几何"
+      ],
+      "order": 3,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-004",
+      "deckId": "cx-numbers-maps",
+      "front": "复数相乘时模与辐角怎样变化？",
+      "back": "|z₁z₂|=|z₁||z₂|；arg(z₁z₂)=arg z₁+arg z₂（模 2π）。",
+      "note": "",
+      "tags": [
+        "复数",
+        "运算"
+      ],
+      "order": 4,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-005",
+      "deckId": "cx-numbers-maps",
+      "front": "复数相除时模与辐角怎样变化？",
+      "back": "|z₁/z₂|=|z₁|/|z₂|；arg(z₁/z₂)=arg z₁-arg z₂。",
+      "note": "z₂≠0。",
+      "tags": [
+        "复数",
+        "运算"
+      ],
+      "order": 5,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-006",
+      "deckId": "cx-numbers-maps",
+      "front": "复共轭有什么基本性质？",
+      "back": "若 z=x+iy，则 z̄=x-iy，且 z z̄=|z|²，1/z = z̄/|z|²（z≠0）。",
+      "note": "",
+      "tags": [
+        "复数",
+        "共轭"
+      ],
+      "order": 6,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-007",
+      "deckId": "cx-numbers-maps",
+      "front": "Riemann 球面如何表示无穷远点？",
+      "back": "把复平面通过球极投影补上一个点 ∞，得到扩充复平面 Ĉ=C∪{∞}，拓扑上同胚于球面。",
+      "note": "",
+      "tags": [
+        "复数",
+        "Riemann球面"
+      ],
+      "order": 7,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-008",
+      "deckId": "cx-numbers-maps",
+      "front": "Möbius 变换的一般形式是什么？",
+      "back": "w=(az+b)/(cz+d)，其中 ad-bc≠0。它在扩充复平面上是双射。",
+      "note": "",
+      "tags": [
+        "复变换",
+        "Mobius"
+      ],
+      "order": 8,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-009",
+      "deckId": "cx-numbers-maps",
+      "front": "Möbius 变换把广义圆映成什么？",
+      "back": "把圆或直线（统一称广义圆）映成圆或直线。",
+      "note": "直线可视为经过 ∞ 的圆。",
+      "tags": [
+        "复变换",
+        "Mobius"
+      ],
+      "order": 9,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-010",
+      "deckId": "cx-numbers-maps",
+      "front": "复映射中的“共形”直观上是什么意思？",
+      "back": "在导数不为 0 的点附近局部保持角度与定向；一阶近似就是旋转加缩放。",
+      "note": "解析且 f'(z₀)≠0 时局部共形。",
+      "tags": [
+        "复变换",
+        "共形"
+      ],
+      "order": 10,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-011",
+      "deckId": "cx-analytic",
+      "front": "复函数在 z₀ 可导的定义是什么？",
+      "back": "极限 f'(z₀)=lim_{z→z₀}[f(z)-f(z₀)]/(z-z₀) 存在，并且与 z 接近 z₀ 的方向无关。",
+      "note": "方向无关是复导数比实导数严格得多的原因。",
+      "tags": [
+        "解析函数",
+        "定义"
+      ],
+      "order": 11,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-012",
+      "deckId": "cx-analytic",
+      "front": "解析函数是什么意思？",
+      "back": "函数在某个开邻域内每一点都复可导，则称在该区域解析（全纯）。",
+      "note": "仅在单点可导不等于解析。",
+      "tags": [
+        "解析函数",
+        "定义"
+      ],
+      "order": 12,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-013",
+      "deckId": "cx-analytic",
+      "front": "Cauchy-Riemann 方程是什么？",
+      "back": "若 f=u+iv，则必要条件为 u_x=v_y，u_y=-v_x。",
+      "note": "在偏导连续等适当条件下也是充分条件。",
+      "tags": [
+        "解析函数",
+        "CR方程"
+      ],
+      "order": 13,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-014",
+      "deckId": "cx-analytic",
+      "front": "用极坐标表示的 Cauchy-Riemann 方程是什么？",
+      "back": "u_r=(1/r)v_θ，v_r=-(1/r)u_θ（r>0）。",
+      "note": "",
+      "tags": [
+        "解析函数",
+        "CR方程"
+      ],
+      "order": 14,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-015",
+      "deckId": "cx-analytic",
+      "front": "若 f=u+iv 解析，f' 如何用 u,v 的偏导表示？",
+      "back": "f'=u_x+i v_x = v_y - i u_y。",
+      "note": "由 Cauchy-Riemann 方程得到。",
+      "tags": [
+        "解析函数",
+        "导数"
+      ],
+      "order": 15,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-016",
+      "deckId": "cx-analytic",
+      "front": "解析函数的实部和虚部满足什么方程？",
+      "back": "若二阶偏导连续，则 u,v 都是调和函数：u_xx+u_yy=0，v_xx+v_yy=0。",
+      "note": "",
+      "tags": [
+        "解析函数",
+        "调和函数"
+      ],
+      "order": 16,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-017",
+      "deckId": "cx-analytic",
+      "front": "什么是调和共轭？",
+      "back": "若 u+iv 解析，则 v 是 u 的调和共轭；给定调和函数 u，可利用 Cauchy-Riemann 方程求 v（差一个常数）。",
+      "note": "",
+      "tags": [
+        "解析函数",
+        "调和共轭"
+      ],
+      "order": 17,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-018",
+      "deckId": "cx-analytic",
+      "front": "为什么 f(z)=z̄ 在任何点附近都不是解析函数？",
+      "back": "写成 u=x,v=-y，有 u_x=1 而 v_y=-1，不满足 Cauchy-Riemann 方程。",
+      "note": "",
+      "tags": [
+        "解析函数",
+        "反例"
+      ],
+      "order": 18,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-019",
+      "deckId": "cx-analytic",
+      "front": "若解析函数 f'(z₀)=0，共形性怎样？",
+      "back": "在该点通常不再保持角度的一阶结构；局部行为由更高阶非零项决定。",
+      "note": "例如 z↦z² 在 0 处导数为 0。",
+      "tags": [
+        "解析函数",
+        "共形"
+      ],
+      "order": 19,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-020",
+      "deckId": "cx-analytic",
+      "front": "复指数函数 e^z 的导数与周期是什么？",
+      "back": "(e^z)'=e^z，且 e^{z+2πi}=e^z。",
+      "note": "复指数因此不是全局单射。",
+      "tags": [
+        "解析函数",
+        "初等函数"
+      ],
+      "order": 20,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-021",
+      "deckId": "cx-integrals-residue",
+      "front": "复线积分如何参数化？",
+      "back": "若 γ:z=z(t), a≤t≤b，则 ∫_γ f(z)dz = ∫_a^b f(z(t))z'(t)dt。",
+      "note": "方向反转时整体变号。",
+      "tags": [
+        "复积分",
+        "公式"
+      ],
+      "order": 21,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-022",
+      "deckId": "cx-integrals-residue",
+      "front": "ML 不等式是什么？",
+      "back": "若 γ 长度为 L，且 |f(z)|≤M，则 |∫_γ f(z)dz|≤ML。",
+      "note": "常用于估计积分或证明某段积分趋于 0。",
+      "tags": [
+        "复积分",
+        "估计"
+      ],
+      "order": 22,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-023",
+      "deckId": "cx-integrals-residue",
+      "front": "Cauchy 积分定理的核心结论是什么？",
+      "back": "若 f 在单连通区域内解析，则任意闭曲线 γ 上 ∮_γ f(z)dz=0。",
+      "note": "更一般版本可放宽单连通条件，但需确保曲线及内部无奇点。",
+      "tags": [
+        "复积分",
+        "Cauchy"
+      ],
+      "order": 23,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-024",
+      "deckId": "cx-integrals-residue",
+      "front": "Cauchy 积分公式是什么？",
+      "back": "若 f 在 γ 及其内部解析，z₀ 在 γ 内，则 f(z₀)=1/(2πi)∮_γ f(z)/(z-z₀) dz。",
+      "note": "γ 取正向。",
+      "tags": [
+        "复积分",
+        "Cauchy"
+      ],
+      "order": 24,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-025",
+      "deckId": "cx-integrals-residue",
+      "front": "Cauchy 高阶导数公式是什么？",
+      "back": "f^{(n)}(z₀)=n!/(2πi)∮_γ f(z)/(z-z₀)^{n+1} dz。",
+      "note": "",
+      "tags": [
+        "复积分",
+        "Cauchy"
+      ],
+      "order": 25,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-026",
+      "deckId": "cx-integrals-residue",
+      "front": "Laurent 级数与 Taylor 级数的关键区别是什么？",
+      "back": "Laurent 级数允许负幂：Σ_{n=-∞}^{∞} a_n(z-z₀)^n，可在环域内表示含孤立奇点的解析函数。",
+      "note": "Taylor 级数只有非负幂。",
+      "tags": [
+        "Laurent",
+        "级数"
+      ],
+      "order": 26,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-027",
+      "deckId": "cx-integrals-residue",
+      "front": "孤立奇点分哪三类？",
+      "back": "可去奇点、极点、本性奇点。可通过 Laurent 主部判断：无负幂、有限个负幂、无限个负幂。",
+      "note": "",
+      "tags": [
+        "奇点",
+        "分类"
+      ],
+      "order": 27,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-028",
+      "deckId": "cx-integrals-residue",
+      "front": "留数是什么？",
+      "back": "函数在 z₀ 的 Laurent 展开中 (z-z₀)^{-1} 的系数 a_{-1}。",
+      "note": "记作 Res(f,z₀)。",
+      "tags": [
+        "留数",
+        "定义"
+      ],
+      "order": 28,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-029",
+      "deckId": "cx-integrals-residue",
+      "front": "简单极点的留数怎样计算？",
+      "back": "若 z₀ 为简单极点，则 Res(f,z₀)=lim_{z→z₀}(z-z₀)f(z)。",
+      "note": "若 f=g/h 且 h(z₀)=0,h'(z₀)≠0，则 Res=g(z₀)/h'(z₀)。",
+      "tags": [
+        "留数",
+        "计算"
+      ],
+      "order": 29,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-030",
+      "deckId": "cx-integrals-residue",
+      "front": "m 阶极点的留数公式是什么？",
+      "back": "Res(f,z₀)=1/(m-1)! · lim_{z→z₀} d^{m-1}/dz^{m-1}[(z-z₀)^m f(z)]。",
+      "note": "",
+      "tags": [
+        "留数",
+        "计算"
+      ],
+      "order": 30,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-031",
+      "deckId": "cx-integrals-residue",
+      "front": "留数定理是什么？",
+      "back": "若 γ 正向包围孤立奇点 z₁,…,z_n，则 ∮_γ f(z)dz = 2πi Σ Res(f,z_k)。",
+      "note": "",
+      "tags": [
+        "留数",
+        "定理"
+      ],
+      "order": 31,
+      "source": "memo-complex"
+    },
+    {
+      "id": "cx-032",
+      "deckId": "cx-integrals-residue",
+      "front": "Green 公式与 Cauchy 积分定理有什么联系？",
+      "back": "把 f=u+iv、dz=dx+i dy 展开后，闭曲线积分的实部和虚部都可用 Green 公式转为区域积分；Cauchy-Riemann 方程使相应被积函数为 0。",
+      "note": "这给出 Cauchy 定理在光滑条件下的一种直观证明。",
+      "tags": [
+        "复积分",
+        "Green公式"
+      ],
+      "order": 32,
+      "source": "memo-complex"
+    }
+  ]
+}
